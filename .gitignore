@@ -40,4 +40,4 @@ app-example
 
 # ENV
 .env
-nativewind-env.d
+nativewind-env.d.ts
