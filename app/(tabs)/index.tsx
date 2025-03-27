@@ -27,7 +27,7 @@ export default function Index() {
             (
               <View className="flex-1 mt-5">
                 <SearchBar onPress={() => router.push("/search")} placeholder="Search for a movie" />
-                <>
+                <View>
                   <Text className="text-lg font-bold mt-5 mb-3 text-white font-[Poppins]">
                     Popular Movies
                   </Text>
@@ -37,16 +37,15 @@ export default function Index() {
                       <MovieCard {...item} />
                     )}
                     keyExtractor={item => item.id.toString()}
-                    numColumns={3}
+                    numColumns={2}
                     columnWrapperStyle={{
                       justifyContent: "flex-start",
                       gap: 20,
                       marginBottom: 20
                     }}
-                    className="mt-2 pb-32"
                     scrollEnabled={false}
                   />
-                </>
+                </View>
               </View>
             )
         }
