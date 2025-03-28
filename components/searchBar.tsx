@@ -1,26 +1,28 @@
-import { View, Text, TextInput} from 'react-native'
-import React from 'react'
+import { View, TextInput, TouchableOpacity } from "react-native";
+import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-
 interface SearchBarInterface {
-  onPress: ()=> void
-  placeholder: string
+  onPress?: () => void;
+  placeholder: string;
+  value?: string;
+  onChangeText?: (text: string) => void;
 }
 
-const SearchBar = ({onPress, placeholder}: SearchBarInterface) => {
+const SearchBar = ({ onPress, placeholder, value, onChangeText }: SearchBarInterface) => {
   return (
-    <View className="flex flex-row gap-2">
-        <Ionicons name="search-circle-outline" size={30} color="white" />
-        <TextInput 
-          placeholder={placeholder}
-          onPress={onPress}
-          value=''
-          onChangeText={()=> {}}
-          className='flex-1 text-white pl-2 border-2 rounded-sm border-[#808080] outline-1 focus:outline-2 outline-white'
-        />
-    </View>
-  )
-}
+    <TouchableOpacity onPress={onPress} activeOpacity={1} className="group flex flex-row items-center gap-2 p-2 border-2 rounded-md border-[#808080]">
+      <Ionicons name="search" size={24} color="white" />
+      <TextInput
+        placeholder={placeholder}
+        value={value}
+        onChangeText={onChangeText}
+        editable={!onPress}
+        placeholderTextColor="#bbb"
+        className="flex-1 text-white focus:outline-none"
+      />
+    </TouchableOpacity>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

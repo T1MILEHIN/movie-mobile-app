@@ -1,32 +1,51 @@
-import { ActivityIndicator, FlatList, Image, ScrollView, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "react-native";
 import SearchBar from "@/components/searchBar";
 import { useRouter } from "expo-router";
 import useFetch from "@/services/useFetch";
 import { fetchMovies } from "@/services/api";
+import TrendingCard from "@/components/trendingCard";
 import MovieCard from "@/components/movieCard";
+import { getTrendingMovie } from "@/services/appwrite";
 
 
 export default function Index() {
   const router = useRouter()
-  const { data: movies, loading, error } = useFetch(() => fetchMovies({ query: "" }))
+  const { data: trendingMovies, loading: trendsLoading, error: trendsError } = useFetch(getTrendingMovie);
+  const { data: movies, loading, error } = useFetch(() => fetchMovies({ query: "" }));
   return (
     <View className="flex-1 bg-primary font-[Poppins]">
-      <ScrollView className="px-5"
+      <ScrollView className="flex-1 px-5"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
+          flex: 1,
           minHeight: "100%"
         }}>
         <Image className="size-2 object-cover mx-auto" source={require("../../assets/images/react-logo.png")} />
-        {loading ?
-          (<ActivityIndicator size="large" color="#0000ff" className="mt-10 self-center" />)
+        {loading || trendsLoading ?
+          (<ActivityIndicator size="large" color="#0000ff" className="my-10 self-center" />)
           :
-          error ? (
+          error || trendsError ? (
             <Text className="text-red-500 text-center">Error Loading Movies</Text>
           )
             :
             (
               <View className="flex-1 mt-5">
                 <SearchBar onPress={() => router.push("/search")} placeholder="Search for a movie" />
+                <View className="">
+                  <Text className="text-lg font-bold mt-5 mb-3 text-white font-[Poppins]">
+                    Trending Movies
+                  </Text>
+                  <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    ItemSeparatorComponent={()=> <View className="w-3" />}
+                    data={trendingMovies}
+                    renderItem={({ item, index }) => (
+                      <TrendingCard {...item} index={index} />
+                    )}
+                    keyExtractor={item => item.movie_id.toString()}
+                  />
+                </View>
                 <View>
                   <Text className="text-lg font-bold mt-5 mb-3 text-white font-[Poppins]">
                     Popular Movies
