@@ -5,11 +5,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["Poppins-Regular"],
+        poppins: ["Poppins"],
       },
       colors: {
         primary: "#030014",
-        secondary: "#151312"
+        secondary: "#151312",
+        accent: "#AB8BFF"
       }
     },
   },

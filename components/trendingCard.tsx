@@ -13,7 +13,7 @@ interface TrendingCardInterface {
 
 const TrendingCard = ({movie_id, title, poster_url, count, index}: TrendingCardInterface) => {
   return (
-    <Link href={`/`} asChild>
+    <Link href={`/movies/${movie_id}`} asChild>
         <TouchableOpacity className='w-36 relative'>
             <Image 
                 className="w-36 h-48 rounded-lg"

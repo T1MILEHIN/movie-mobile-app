@@ -38,7 +38,7 @@ export default function Index() {
                   <FlatList
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    ItemSeparatorComponent={()=> <View className="w-3" />}
+                    ItemSeparatorComponent={()=> <View className="w-4" />}
                     data={trendingMovies}
                     renderItem={({ item, index }) => (
                       <TrendingCard {...item} index={index} />
@@ -47,7 +47,7 @@ export default function Index() {
                   />
                 </View>
                 <View>
-                  <Text className="text-lg font-bold mt-5 mb-3 text-white font-[Poppins]">
+                  <Text className="text-lg font-bold mt-5 mb-3 text-white font-poppins">
                     Popular Movies
                   </Text>
                   <FlatList
@@ -57,11 +57,21 @@ export default function Index() {
                     )}
                     keyExtractor={item => item.id.toString()}
                     numColumns={2}
+                    contentContainerStyle={{
+                      marginBottom: 100
+                    }}
                     columnWrapperStyle={{
                       justifyContent: "flex-start",
                       gap: 20,
-                      marginBottom: 20
+                      marginBottom: 18
                     }}
+                    ListFooterComponent={
+                      <>
+                        <View className="mt-2">
+                          <Text className="text-white text-center font-poppins">Built by Timilehin</Text>
+                        </View>
+                      </>
+                    }
                     scrollEnabled={false}
                   />
                 </View>

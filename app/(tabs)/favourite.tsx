@@ -3,8 +3,8 @@ import React from 'react'
 
 const favourite = () => {
   return (
-    <View className="min-h-screen">
-      <Text className='flex flex-1 justify-center items-center text-4xl font-medium font-[poppins]'>Favourite</Text>
+    <View className="min-h-screen bg-primary">
+      <Text className='flex flex-1 justify-center items-center text-4xl font-medium font-poppins text-white'>Favourite</Text>
     </View>
   )
 }

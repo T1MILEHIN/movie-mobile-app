@@ -1,5 +1,14 @@
 import { Client, Databases, ID, Query } from "react-native-appwrite"
 
+interface TrendingMovie {
+    id: string;
+    searchTerm: string;
+    movie_id: number;
+    title: string;
+    count: number;
+    poster_url: string;
+}
+
 const PROJECT_ID = process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTIONS_ID!
@@ -49,7 +58,7 @@ export const updateSearchCount = async (query: string, movie: any) => {
     }
 }
 
-export const getTrendingMovie = async(): Promise<TrendingMovie[] | undefined> => {
+export const getTrendingMovie = async (): Promise<TrendingMovie[] | undefined> => {
     try {
         const results = await database.listDocuments(DATABASE_ID, COLLECTION_ID, [
             Query.limit(5),

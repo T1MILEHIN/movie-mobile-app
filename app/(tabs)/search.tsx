@@ -73,8 +73,8 @@ const search = () => {
             }
             {
               !loading && !error && searchParam.trim() && movies?.length > 0 && (
-                <Text className='text-white my-2 font-[Poppins]'>Search Result for{' '}
-                  <Text className='font-bold'>{searchParam}</Text>
+                <Text className='text-white my-2 font-poppins'>Search Result for{' '}
+                  <Text className='font-bold text-accent'>{searchParam}</Text>
                 </Text>
               )
             }

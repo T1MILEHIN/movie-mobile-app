@@ -8,12 +8,13 @@ interface MovieCardInterface {
     title: string;
     poster_path: string;
     vote_average: any;
+    vote_count: any;
     release_date: any;
 }
 
 const MovieCard = ({ id, title, poster_path, vote_average, release_date }: MovieCardInterface) => {
     return (
-        <Link href={`/`} asChild>
+        <Link href={`/movies/${id}`} asChild>
             <TouchableOpacity className='w-[47%] sm:w-[30%]'>
                 <Image source={{
                     uri: poster_path ?
