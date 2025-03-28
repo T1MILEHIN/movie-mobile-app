@@ -68,7 +68,7 @@ const search = () => {
             }
             {
               error && (
-                <Text className="text-red-500 text-center mt-4 font-[Poppins]">Error Searching Movies</Text>
+                <Text className="text-red-500 text-center mt-4 font-poppins">Error Searching Movies</Text>
               )
             }
             {

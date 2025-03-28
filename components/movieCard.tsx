@@ -25,7 +25,7 @@ const MovieCard = ({ id, title, poster_path, vote_average, release_date }: Movie
                 className='w-full h-52 rounded-lg'
                 resizeMode='cover'
                 />
-                <Text numberOfLines={1} className='text-white text-sm font-semibold mt-2 font-[Poppins]'>{title}</Text>
+                <Text numberOfLines={1} className='text-white text-sm font-semibold mt-2 font-poppins'>{title}</Text>
                 <View className='flex-row items-center justify-start gap-x-1'>
                     <Ionicons name="star" size={10} color="gold" />
                     <Text className='text-white text-xs font-bold'>{Math.round(vote_average / 2)}</Text>

@@ -25,7 +25,7 @@ const TrendingCard = ({movie_id, title, poster_url, count, index}: TrendingCardI
             <View className='absolute bottom-9 -left-3.5 px-2 py-1 rounded-full'>
                 <MaskedView 
                     maskElement={
-                        <Text className='text-white font-bold text-6xl font-[Poppins]'>{index + 1}</Text>
+                        <Text className='text-white font-bold text-6xl font-poppins'>{index + 1}</Text>
                     }
                 />
             </View>

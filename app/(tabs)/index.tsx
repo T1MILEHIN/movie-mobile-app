@@ -13,7 +13,7 @@ export default function Index() {
   const { data: trendingMovies, loading: trendsLoading, error: trendsError } = useFetch(getTrendingMovie);
   const { data: movies, loading, error } = useFetch(() => fetchMovies({ query: "" }));
   return (
-    <View className="flex-1 bg-primary font-[Poppins]">
+    <View className="flex-1 bg-primary font-poppins">
       <ScrollView className="flex-1 px-5"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
@@ -32,7 +32,7 @@ export default function Index() {
               <View className="flex-1 mt-5">
                 <SearchBar onPress={() => router.push("/search")} placeholder="Search for a movie" />
                 <View className="">
-                  <Text className="text-lg font-bold mt-5 mb-3 text-white font-[Poppins]">
+                  <Text className="text-lg font-semibold mt-5 mb-3 text-white font-poppins">
                     Trending Movies
                   </Text>
                   <FlatList
@@ -47,7 +47,7 @@ export default function Index() {
                   />
                 </View>
                 <View>
-                  <Text className="text-lg font-bold mt-5 mb-3 text-white font-poppins">
+                  <Text className="text-lg font-semibold mt-5 mb-3 text-white font-poppins">
                     Popular Movies
                   </Text>
                   <FlatList

@@ -17,9 +17,8 @@ const SearchBar = ({ onPress, placeholder, value, onChangeText }: SearchBarInter
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
-        editable={!onPress}
         placeholderTextColor="#bbb"
-        className="flex-1 text-white focus:outline-none"
+        className="flex-1 text-white focus:outline-none font-poppins"
       />
     </TouchableOpacity>
   );
