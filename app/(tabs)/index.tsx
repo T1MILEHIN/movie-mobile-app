@@ -32,7 +32,7 @@ export default function Index() {
               <View className="flex-1 mt-5">
                 <SearchBar onPress={() => router.push("/search")} placeholder="Search for a movie" />
                 <View className="">
-                  <Text className="text-lg font-semibold mt-5 mb-3 text-white font-poppins">
+                  <Text className="text-lg font-medium mt-5 mb-3 text-white font-poppins">
                     Trending Movies
                   </Text>
                   <FlatList
@@ -47,7 +47,7 @@ export default function Index() {
                   />
                 </View>
                 <View>
-                  <Text className="text-lg font-semibold mt-5 mb-3 text-white font-poppins">
+                  <Text className="text-lg font-medium mt-5 mb-3 text-white font-poppins">
                     Popular Movies
                   </Text>
                   <FlatList
