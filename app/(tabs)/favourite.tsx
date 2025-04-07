@@ -7,11 +7,12 @@ import MovieCard from '@/components/movieCard';
 
 const favourite = () => {
   const { user } = useAuth();
-  console.log(user)
   const { data: fav = [], error, loading } = useFetch(() => fetchUsersFavourite(user.$id))
-  console.log(fav)
+  if (!user) return <View className="min-h-screen flex-1 justify-center items-center bg-primary">
+    <Text className='text-white texy-2xl font-poppins'>Login to view your Favourite</Text>
+  </View>
   return (
-    <ScrollView className="flex-1 bg-primary py-3"
+    <ScrollView className="flex-1 bg-primary"
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{
         flex: 1,
