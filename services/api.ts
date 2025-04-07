@@ -1,5 +1,6 @@
 interface MovieDetails {
     id: number;
+    $id: any;
     title: string;
     overview: string;
     release_date: string;
